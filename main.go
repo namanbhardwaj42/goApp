@@ -3,13 +3,15 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"text/template"
 
 	"github.com/julienschmidt/httprouter"
 )
 
 func Home(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+	var username string = "Naman Bhardwaj"
 	w.Header().Set("Content-Type", "text/html")
-	fmt.Fprint(w, "<h1>Welcome to <font color = 'orange'>Firenos</font></h1>")
+	fmt.Fprint(w, "<h1>Hi! "+username+"... Welcome to <font color = 'orange'>Firenos</font></h1>")
 }
 
 func Contact(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
@@ -29,6 +31,7 @@ func notFound(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	template.New("Blah")
 	r := httprouter.New()
 	r.GET("/", Home)
 	r.GET("/contact", Contact)
