@@ -27,12 +27,6 @@ func Faq(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, "<h1>Faq Page</h1><p>Under Development</p>")
 }
 
-func notFound(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "text/html")
-	w.WriteHeader(http.StatusNotFound)
-	fmt.Fprint(w, "<h1>404 Page Not found!</h1>")
-}
-
 func main() {
 	var err error
 	homeTemplate, err = template.ParseFiles("views/home.gohtml")
